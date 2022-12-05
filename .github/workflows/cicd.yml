@@ -48,6 +48,9 @@ jobs:
       - name: Integration test inside Docker-compose
         run: docker-compose -f docker-compose.test.yml up --build --abort-on-container-exit --exit-code-from it_tests
 
+      - name: Echo github token
+        run: echo "my github token is ${{ secrets.GITHUB_TOKEN }}"
+
       - name: Login ghcr.io
         uses: docker/login-action@v1.8.0
         with:
